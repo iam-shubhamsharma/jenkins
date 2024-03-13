@@ -10,8 +10,8 @@ https://github.com/ShikhaaSharmaa45/cicdpipline.git
 Checkout the repo and move to the directory
 
 ```
-git clone https://github.com/ShikhaaSharmaa45/cicdpipline.git/
-cd cicdpipline/
+git clone https://github.com/ShikhaaSharmaa45/jenkins.git/
+cd jenkins/
 cd spring-boot-app/
 ```
 
@@ -38,11 +38,11 @@ java -jar target/spring-boot-web.jar
 Build the Docker Image
 
 ```
-docker build -t cicdpipeline:v1 .
+docker build -t jenkinsjob:v1 .
 ```
 
 ```
-docker run -d -p 8010:8080 -t cicdpipeline:v1
+docker run -d -p 8010:8080 -t jenkinsjob:v1
 ```
 
 Hurray !! Access the application on `http://<ip-address>:8010`
