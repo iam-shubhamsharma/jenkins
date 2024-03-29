@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'shikha1818/maven-docker-agent:latest'
+      image 'shubhamsharma8000/maven-docker-agent:latest'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
@@ -48,13 +48,13 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "jenkins"
-            GIT_USER_NAME = "ShikhaaSharmaa45"
+            GIT_USER_NAME = "iam-shubhamsharma"
         }
         steps {
-            withCredentials([string(credentialsId: 'ShikhaaSharmaa45', variable: 'GITHUB_TOKEN')]) {
+            withCredentials([string(credentialsId: 'iam-shubhamsharma', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "shikha333745@gmail.com"
-                      git config user.name "Shikha Sharma"
+                    git config user.email "shubhamsharma8000@gmail.com"
+                      git config user.name "Shubham Sharma"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i -e "s/jenkinsjob.*/jenkinsjob:${BUILD_NUMBER}/g"  spring-boot-app-manifests/deployment.yml
                     git add spring-boot-app-manifests/deployment.yml
