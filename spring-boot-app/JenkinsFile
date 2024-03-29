@@ -54,7 +54,7 @@ pipeline {
             withCredentials([string(credentialsId: 'iam-shubhamsharma', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     git config user.email "shubhamsharma8000@gmail.com"
-                      git config user.name "Shubham Sharma"
+                      git config user.name "iam-shubhamsharma"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i -e "s/jenkinsjob.*/jenkinsjob:${BUILD_NUMBER}/g"  spring-boot-app-manifests/deployment.yml
                     git add spring-boot-app-manifests/deployment.yml
