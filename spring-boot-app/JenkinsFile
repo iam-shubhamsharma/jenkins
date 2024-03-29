@@ -31,15 +31,15 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "shikha1818/jenkinsjob:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "shubhamsharma8000/jenkinsjob:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "spring-boot-app/Dockerfile"
-        REGISTRY_CREDENTIALS = credentials('shikha1818')
+        REGISTRY_CREDENTIALS = credentials('shubhamsharma8000')
       }
       steps {
         script {
             sh 'cd spring-boot-app && docker build -t ${DOCKER_IMAGE} .'
             def dockerImage = docker.image("${DOCKER_IMAGE}")
-            docker.withRegistry('https://index.docker.io/v1/', "shikha1818") {
+            docker.withRegistry('https://index.docker.io/v1/', "shubhamsharma8000") {
                 dockerImage.push()
             }
         }
